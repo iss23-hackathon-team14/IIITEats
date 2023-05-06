@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 10rem;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 6vw;
+  background-color: black;
+  position: fixed;
+  z-index: 10;
+  --font-size: 1.75rem;
+  --horizontal-margin: 2vw;
+  --image-size: 3.5vw;
+  --gap: 3rem;
+  --font: "OpenSans";
+  --letter-spacing: 0.1rem;
+  --font-weight: 100;
+}
+
+.navbar_left,
+.navbar_right {
+  margin: 0 var(--horizontal-margin);
+}
+
+.navbar_left {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.navbar_left > img {
+  max-width: var(--image-size);
+}
+
+.navbar_right {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100%;
+  gap: var(--gap);
+}
+
+.navbar_right > a {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    font-family: var(--font);
+    font-size: var(--font-size);
+    font-weight: var(--font-weight);
+    letter-spacing: 0.1rem;
+    
+}
+
+/* Selected item in navbar */
+.navbar_right > .selected {
+    color: red;
+}
