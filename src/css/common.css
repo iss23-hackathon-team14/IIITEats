@@ -1,7 +1,16 @@
 /* CSS code common to multiple files are here */
 @font-face {
     font-family: OpenSans;
-    src: url(../../fonts/OpenSans.ttf)
+    src: url(../../fonts/OpenSans.ttf);
+}
+
+@font-face {
+    font-family: Inter;
+    src: url(../../fonts/Inter.ttf);
+}
+
+:root {
+    --nav--and--footer: rgba(24, 24, 24);
 }
 
 footer {
@@ -9,8 +18,13 @@ footer {
     align-items: center;
     justify-content: center;
     height: 8vh;
-    background-color: #002500;
+    background-color: var(--nav--and--footer);
     color: white;
     font-family: OpenSans;
     font-weight: lighter;
+}
+
+.heading {
+    font-family: "Inter";
+    font-size: 5.5rem;
 }
