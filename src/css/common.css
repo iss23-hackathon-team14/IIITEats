@@ -3,3 +3,14 @@
     font-family: OpenSans;
     src: url(../../fonts/OpenSans.ttf)
 }
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 8vh;
+    background-color: black;
+    color: white;
+    font-family: OpenSans;
+    font-weight: lighter;
+}
