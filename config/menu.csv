@@ -1,0 +1,11 @@
+canteen_id,item_name,item_is_veg,item_cost
+1,Mango Juice,1,38
+1,Apple Juice,1,38
+1,Cold Coffee,1,32
+1,Chocolate,1,32
+1,Rose Milk,1,27
+1,Lemon Soda,1,20
+1,Oreo shake,1,37
+1,Paneer Frankie,1,50
+1,Egg Frankie,0,70
+1,Chicken Frankie,0,70
