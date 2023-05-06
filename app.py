@@ -106,6 +106,9 @@ def send_js(name: str):
 def send_index():
     return redirect("/index.html")
 
+@app.route("/canteens/<int:canteen_id>.html")
+def handle_canteens(canteen_id):
+    return render_template("canteen.html", **template_context, canteen_id=canteen_id)
 
 @app.route("/<name>.html")
 def handle_src(name: str):

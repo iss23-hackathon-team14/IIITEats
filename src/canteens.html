@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% set active_page = "/canteens.html" %}
+
+{% block title %}Canteens{% endblock %}
+
+{% block extra_stylesheets %}
+<link rel="stylesheet" href="/css/canteens.css" />
+{% endblock %}
+
+{% block content %}
+<div class="background">
+    <div class="canteen_page_heading heading">
+        Canteens
+    </div>
+
+    <div class="canteen_container">
+        <div class="canteen">Juice Canteen</div>
+        <div class="canteen">Vindhya Canteen</div>
+        <div class="canteen">BBC</div>
+        <div class="canteen">CIE Canteen</div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<!-- Page specific js here -->
+{% endblock %}

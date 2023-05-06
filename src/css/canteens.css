@@ -1,0 +1,54 @@
+.background {
+  background-color: #ecf6e3;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.canteen_page_heading {
+  margin-top: 10vh;
+  color: black;
+}
+
+.canteen_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  row-gap: 5vh;
+  column-gap: 3vw;
+  width: 90%;
+  height: 40%;
+}
+
+.canteen {
+  background-color: white;
+  border-radius: 2rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.4);
+  animation: slide-in 1.2s ease;
+  transition: 0.5s;
+  display: flex;
+  flex-direction: center;
+  align-items: center;
+  justify-content: center;
+  font-family: "OpenSans";
+  font-size: 2rem;
+}
+
+.canteen:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 1.2rem rgba(0, 0, 0, 0.6);
+}
+
+@keyframes slide-in {
+  0% {
+    opacity: 0;
+    transform: translateY(70%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
