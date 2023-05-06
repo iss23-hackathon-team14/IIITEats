@@ -9,12 +9,13 @@ body {
   justify-content: space-between;
   width: 100%;
   height: 10vh;
-  background-color: black;
+  background-color: #002500;
   position: fixed;
   z-index: 10;
+  user-select: none;
   --font-size: 1.75rem;
   --horizontal-margin: 2vw;
-  --image-size: 3.5vw;
+  --image-size: 6vw;
   --gap: 4rem;
   --font: "OpenSans";
   --letter-spacing: 0.1rem;
@@ -46,16 +47,21 @@ body {
 
 .navbar_right > a {
     text-decoration: none;
-    color: white;
+    color: #edf7e6;
     cursor: pointer;
     font-family: var(--font);
     font-size: var(--font-size);
     font-weight: var(--font-weight);
     letter-spacing: 0.1rem;
-    
+    transition: 0.4s;
+}
+
+.navbar_right > a:hover {
+    color: #b6dc97;
+    transform: scale(1.05);
 }
 
 /* Selected item in navbar */
 .navbar_right > .selected {
-    color: red;
+    color: #b6dc97;
 }
