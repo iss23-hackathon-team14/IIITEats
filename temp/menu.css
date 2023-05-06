@@ -1,0 +1,309 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #3dc548;
+    padding: 5rem;
+    text-align: center;
+}
+
+
+
+table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+  }
+  
+  td,th {
+    padding: 1rem;
+
+  }
+
+ .food{
+    margin-left: 1rem;
+    position: relative;
+ }
+
+
+  tr:nth-child(even) {
+    background-color: lightgray;
+  }
+  
+  tr:nth-child(odd) {
+    background-color: white;
+  }
+  
+
+  .tantra {
+    position: relative;
+    top: 2rem;
+    margin-top: 20rem;
+  }
+
+
+  .top{
+    position: absolute;
+    padding-top: 2rem;
+    
+  }
+
+
+  input[type="checkbox"] {
+    display: none;
+}
+
+/* Style the custom checkbox */
+.checkbox {
+    display: inline-block;
+    position: relative;
+    width: 10rem;
+    height: 10rem;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+/* Style the custom checkbox when checked */
+input[type="checkbox"]:checked + .checkbox:before {
+    content: "\2714";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 16px;
+    line-height: 1;
+    text-align: center;
+    width: 16px;
+    height: 16px;
+    background-color: #4CAF50;
+    border-radius: 50%;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Style the custom checkbox on hover */
+.checkbox:hover {
+    border-color: #4CAF50;
+}
+
+/* Style the custom checkbox on focus */
+.checkbox:focus {
+    outline: none;
+    box-shadow: 0px 0px 3px #4CAF50;
+}
+
+.counter,.counter1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .counter-btn,.counter-btn1 {
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    background-color: #28a745;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .counter-btn:hover,.counter-btn1:hover {
+    background-color: #218838;
+  }
+  
+  .counter-btn:focus,.counter-btn1:focus {
+    outline: none;
+  }
+  
+  .counter-value,.counter-value1 {
+    display: inline-block;
+    margin: 0 20px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .dropdown {
+    position: absolute;
+    display: inline-block;
+    height:3rem;
+    padding-top: 3rem;
+    overflow: visible;
+   z-index: 1;
+  }
+  
+  .dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: relative;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    overflow: visible;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+
+   width: 100px;
+   padding-right: 0px;
+   
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+    right:0;
+  }
+
+  .green-border {
+    position:relative;
+    margin-bottom: 2rem;
+    background-color:#ffffff ;
+    border: 2rem solid #4CAF50; /* green border */
+    border-color: #28a745;
+    padding: 10px; /* add padding for spacing */
+    font-size: 16px; /* set font size */
+    border-radius: 5px; /* add rounded corners */
+    outline: none; /* remove outline on focus */
+    height:4rem;
+  }
+
+
+  .place-order-btn {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    height:3rem;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .place-order-btn:hover {
+    background-color: #4CAF50;
+  }
+
+ 
+  
+  body {
+    min-height: 95rem;
+  }
+
+/* The switch - the box around the slider */
+.switch {
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 3.5em;
+  height: 2em;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  border: 1px solid #adb5bd;
+  transition: .4s;
+  border-radius: 30px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.4em;
+  width: 1.4em;
+  border-radius: 20px;
+  left: 0.27em;
+  bottom: 0.25em;
+  background-color: #adb5bd;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #007bff;
+  border: 1px solid #007bff;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #007bff;
+}
+
+input:checked + .slider:before {
+  transform: translateX(1.4em);
+  background-color: #fff;
+}
+  
+form {
+  background-color: #77dd77;
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="text"] {
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+input[type="submit"] {
+  background-color: #fff;
+  border-radius: 5px;
+  border: none;
+  color: #77dd77;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #77dd77;
+  color: #fff;
+}
+  
+  
+  
+  
+  
