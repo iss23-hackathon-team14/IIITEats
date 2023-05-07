@@ -11,9 +11,7 @@
     </label>
   </div>
   <div class="context">
-    <div
-      class="order-card"
-    >
+    <div class="order-card">
       <h2>JC</h2>
       <hr class="receipt-line" />
       <p class="f">Landmark: <span>Parijat</span></p>
@@ -21,12 +19,13 @@
       <p class="f">Location: <span>Near Gate</span></p>
       <p class="f">Price: <span>&#x20B9; 150</span></p>
       <hr class="receipt-line" />
-      <p>Status: <span class="price">Order Delivered</span></p>
+      <div class="status_bottom">
+        <p>Status: <span class="price">Order Delivered</span></p>
+        <button class="cancel_order_button">Cancel Order</button>
+      </div>
     </div>
 
-    <div
-      class="order-card"
-    >
+    <div class="order-card">
       <h2>JC</h2>
       <hr class="receipt-line" />
       <p class="f">Landmark: <span>Parijat</span></p>
@@ -34,11 +33,13 @@
       <p class="f">Location: <span>Near Gate</span></p>
       <p class="f">Price: <span>&#x20B9; 150</span></p>
       <hr class="receipt-line" />
-      <p>Status: <span class="price">Order Delivered</span></p>
+      <div class="status_bottom">
+        <p>Status: <span class="price">Order Delivered</span></p>
+        <button class="cancel_order_button">Cancel Order</button>
+      </div>
     </div>
   </div>
 </div>
-{% endblock %}
-{% block extra_js %}
+{% endblock %} {% block extra_js %}
 <script src="./scripts/orders.js"></script>
 {% endblock %}

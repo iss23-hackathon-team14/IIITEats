@@ -274,3 +274,20 @@ input:checked + .slider:before {
     border-radius: 50%;
   }
 }
+
+.status_bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cancel_order_button {
+  font-family: "OpenSans";
+  font-size: 1.2rem;
+  width: 10rem;
+  border-radius: 3rem;
+  border: none;
+  cursor: pointer;
+  background-color: #ee0000;
+  color: white;
+}
