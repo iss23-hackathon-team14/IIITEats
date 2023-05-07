@@ -79,6 +79,10 @@ button {
   margin-bottom: 1rem;
 }
 
+button:hover {
+  background-color: darkgreen;
+}
+
 .login_text {
   font-family: "OpenSans";
   font-size: 1.5rem;

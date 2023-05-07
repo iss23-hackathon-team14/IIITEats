@@ -292,14 +292,26 @@ input:checked + .slider:before {
 }
 
 .cancel_order_button {
-  background-color: #ee0000;
+  background-color: red;
 }
 
 .indelivery_button {
-  background-color: #eed600;
+  background-color: rgb(255, 231, 54);
 }
 
 .delivered_button {
-  background-color: #5fee00;
+  background-color: green;
+}
+
+.cancel_order_button:hover {
+  background-color: darkred;
+}
+
+.indelivery_button:hover {
+  background-color: #ccbc2f;
+}
+
+.delivered_button:hover {
+  background-color: darkgreen;
 }
 

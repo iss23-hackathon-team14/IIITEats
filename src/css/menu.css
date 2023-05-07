@@ -385,6 +385,10 @@ select {
   margin-top: 2.5em;
 }
 
+.form .btn:hover {
+  background-color: darkgreen;
+}
+
 .green-oval-button {
   background-color: green; /* Green background color */
   color: white; /* Text color */
@@ -397,6 +401,10 @@ select {
   width: 10vw;
   margin: 20px; /* Add margin */
   cursor: pointer;
+}
+
+.green-oval-button:hover {
+  background-color: darkgreen;
 }
 
 #number-value {
