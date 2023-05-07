@@ -76,6 +76,7 @@ button {
   height: 3rem;
   width: 9rem;
   border-radius: 2rem;
+  margin-bottom: 1rem;
 }
 
 .login_text {
