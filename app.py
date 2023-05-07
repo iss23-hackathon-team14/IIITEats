@@ -230,7 +230,7 @@ def handle_canteens(canteen_id, name):
 
 @app.route("/<name>.html")
 def handle_src(name: str):
-    if name not in ("canteens", "about", "orders"):
+    if name not in ("canteens", "about", "orders", "deliveries"):
         abort(404)
 
     session["prev_url"] = request.path
