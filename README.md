@@ -19,7 +19,8 @@ We are a decentralized freelancing-style delivery solution for the IIIT communit
 
 ### Deliveries page
 
-- On accepting an order from the Accept Orders page, you will be redirected to the Deliveries page, where you will be able to view the entire order, location to deliver the order, as well as the contact details of the user to deliver to. Additionally, there are buttons to change the status of the delivery. These status changes will be displayed in the current orders in the orders page from the user who ordered the food and the status will be changed when the user delivering the food with the status buttons.
+- On accepting an order from the Accept Orders page, you will be redirected to the Deliveries page, where you will be able to view the entire order, location to deliver the order, as well as the contact details of the user to deliver to.
+- Additionally, there are buttons to change the status of the delivery. These status changes will be displayed in the current orders in the orders page from the user who ordered the food and the status will be changed when the user delivering the food with the status buttons.
 
 ### About page
 
