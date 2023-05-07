@@ -394,7 +394,7 @@ select {
   text-decoration: none; /* Remove underline */
   font-size: 1.2rem;
   height: 3rem;
-  width: 10rem;
+  width: 10vw;
   margin: 20px; /* Add margin */
   cursor: pointer;
 }
@@ -425,6 +425,7 @@ select {
   justify-content: space-around;
   align-items: center;
   width: 100%;
+  margin: 0 5rem;
 }
 
 .order_total {
@@ -438,4 +439,13 @@ select {
 
 .delivery_fee {
   color: green;
+  width: 50rem;
+  font-family: "OpenSans";
+  font-size: 1.5rem;
+}
+
+.total {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

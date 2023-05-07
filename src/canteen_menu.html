@@ -62,7 +62,10 @@ title %}Home{% endblock %} {% block extra_stylesheets %}
     {% endfor %}
   </div>
   <div class="submit_order_section">
-    <div class="order_total" id="order-total">Order Total: ₹0 <div class = "delivery_fee" style="display:inline">+ 30 (delivery fee)</div></div>
+    <div class="total">
+      <div class="order_total" id="order-total"></div>
+      <div class = "delivery_fee" style="display:inline">(Includes ₹30 delivery fee)</div>
+    </div>
     <button class="green-oval-button" onclick="place_order()">
       Place Order
     </button>
