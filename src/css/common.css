@@ -1,12 +1,12 @@
 /* CSS code common to multiple files are here */
 @font-face {
     font-family: OpenSans;
-    src: url(../../fonts/OpenSans.ttf);
+    src: url(/fonts/OpenSans.ttf);
 }
 
 @font-face {
     font-family: Inter;
-    src: url(../../fonts/Inter.ttf);
+    src: url(/fonts/Inter.ttf);
 }
 
 :root {
