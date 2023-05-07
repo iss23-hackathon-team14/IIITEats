@@ -69,6 +69,12 @@ function updateCounter1() {
   counterValue1.textContent = count1;
 }
 
+// Get the number value from somewhere
+let numberValue = 42;
+
+// Update the text of the element with id "number-value"
+document.getElementById("number-value").innerHTML = numberValue;
+
 
 
 

@@ -18,140 +18,195 @@
   <font style="position:absolute;left:6rem; top:13rem;"><b></b></font>
 	</header>
 
+        
+<div class="dropdown">
+  <button class="dropbtn" style="position: relative; left:15rem; top:2rem;">Select Landmark</button>
+  <div class="dropdown-content"style="position:absolute; left:15rem; top:5rem;">
+    <a href="#">Bakul Nivas</a>
+    <a href="#">NBH</a>
+    <a href="#">OBH</a>
+    <a href="#">Parijat</a>
+  </div>
+</div>
+
+
+<input type="text" id="input" name="input" class="input-box" placeholder="Enter Location" 
+style="position: relative; left:35rem; top:0.1rem; height:10rem; width:15rem;">
+  <div class="big">
+    <article class="recipe" style="position:relative;left:11.5rem; top:2.7rem;">
+     <div class="pizza-box img1">
+       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn6URRaHuu4uBYd7t5I0FNNtc78Gv2bdy-3A&usqp=CAU" style="position:relative; height:7rem;width:7rem;">
+     </div>
+     <div class="recipe-content">
  
-    <table id="menu">
-      <tr id="top" >
-        <!-- <input type="checkbox"  id="tantra" name="tantra">
-        <label for="tantra">Veg</label><br> -->
-  
-      </tr>
-        <tr>
-          <td ><img id="food" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn6URRaHuu4uBYd7t5I0FNNtc78Gv2bdy-3A&usqp=CAU" style="height:4rem; width:4rem; margin-left: 2rem;"></td>
-          <td><b>Veg Sandwich</b></td>
-
-          <td><b>Rs 50</b></td>
-         <td>
-          <div class="counter">
-            <button class="counter-btn minus" id="counter-btn minus">-</button>
-            <span class="counter-value" id="counter-value">0</span>
-            <button class="counter-btn plus" id="counter-btn plus">+</button>
-          </div>
-          
-          
-       
-        
-
-        </td> 
-        </tr>
-        <tr>
-          <td><img src="https://www.indianhealthyrecipes.com/wp-content/uploads/2021/10/cheese-sandwich-recipe.jpg" style="height:4rem; width:4rem; margin-left: 2rem;"></td>
-            <td><b>Cheese Sandwich</b></td>
-            <td><b>Rs 70</b></td>
-            <td>
-
-              <div class="counter1">
-                <button class="counter-btn minus1" id="counter-btn minus1">-</button>
-                <span class="counter-value1" id="counter-value1">0</span>
-                <button class="counter-btn plus1" id="counter-btn plus1">+</button>
-              </div>
-              
-           
-            
-    
-            </td>
-          </tr>
-          <tr>
-            <td><img src="https://s3-ap-south-1.amazonaws.com/nestle-fitterfly-asset/entity_images/images/000/011/981/big/20354_Whole_Wheat__Paneer_Vegetable_Shawarma.webp?1658242053" style="height:4rem; width:4rem; margin-left: 2rem;"></td>
-            <td><b>Veg Shawarma</b></td>
-            <td><b>Rs 100</b></td>
-          </tr>
-          <tr>
-            <td><img src="https://www.licious.in/blog/wp-content/uploads/2022/02/shutterstock_1339636625-750x750.jpg" style="height:4rem; width:4rem; margin-left: 2rem;"></td>
-            <td><b>Chicken Shawarma</b></td>
-            <td><b>Rs 120</b></td>
-          </tr>
-          <tr>
-            <td><img src="https://i.ytimg.com/vi/T09CbMLq6Wo/maxresdefault.jpg" style="height:4rem; width:4rem; margin-left: 2rem;"></td>
-            <td><b>Veg Maggi</b></td>
-            <td><b>Rs 50</b></td>
-          </tr>
-          <tr>
-            <td><img src="https://www.licious.in/blog/wp-content/uploads/2022/01/shutterstock_1969538683-750x750.jpg" style="height:4rem; width:4rem; margin-left: 2rem;"></td>
-            <td><b>Egg Maggi</b></td>
-            <td><b>Rs 70</b></td>
-          </tr>
-
-          <tr>
-            <td><img src="https://www.indianhealthyrecipes.com/wp-content/uploads/2021/10/cheese-sandwich-recipe.jpg" style="height:4rem; width:4rem; margin-left: 2rem;"></td>
-              <td><b>Cheese Sandwich</b></td>
-              <td><b>Rs 70</b></td>
-              <td>
-  
-                <div class="counter1">
-                  <button class="counter-btn minus1" id="counter-btn minus1">-</button>
-                  <span class="counter-value1" id="counter-value1">0</span>
-                  <button class="counter-btn plus1" id="counter-btn plus1">+</button>
-                </div>
-                
-             
-              
-      
-              </td>
-            </tr>
-            <tr>
-              <td><img src="https://s3-ap-south-1.amazonaws.com/nestle-fitterfly-asset/entity_images/images/000/011/981/big/20354_Whole_Wheat__Paneer_Vegetable_Shawarma.webp?1658242053" style="height:4rem; width:4rem; margin-left: 2rem;"></td>
-              <td><b>Veg Shawarma</b></td>
-              <td><b>Rs 100</b></td>
-            </tr>
-            <tr>
-              <td><img src="https://www.licious.in/blog/wp-content/uploads/2022/02/shutterstock_1339636625-750x750.jpg" style="height:4rem; width:4rem; margin-left: 2rem;"></td>
-              <td><b>Chicken Shawarma</b></td>
-              <td><b>Rs 120</b></td>
-            </tr>
-            <tr>
-              <td><img src="https://i.ytimg.com/vi/T09CbMLq6Wo/maxresdefault.jpg" style="height:4rem; width:4rem; margin-left: 2rem;"></td>
-              <td><b>Veg Maggi</b></td>
-              <td><b>Rs 50</b></td>
-            </tr>
-
-        
-      </table>
-
-      <div class="dropdown">
-        <button class="dropbtn" style="left:10rem; width:10rem; position:absolute;">Select Landmark</button>
-        <div class="dropdown-content" style="left:10rem; top:2.5rem; position:relative;">
-          
-          <a href="#">Bakul Nivas</a>
-          <a href="#">NBH</a>
-          <a href="#">OBH</a>
-          <a href="#">Parijat</a>
-          
-        </div>
+       <h1 class="recipe-title"style="padding-right: 2rem; position:relative;"><a>Veg Sandwich</a></h1>
+       <h1 class="recipe-title"style="padding-right: 2rem; position:relative;"><a>Rs 50</a></h1>
+       <div class="counter" style="position:relative; left:15rem;bottom:2rem;">
+        <button class="counter-btn minus" id="counter-btn minus">-</button>
+        <span class="counter-value" id="counter-value">0</span>
+        <button class="counter-btn plus" id="counter-btn plus">+</button>
       </div>
-<div style="position:absolute; left:20rem;">
-  <input type="text" class="green-border" style="left:10rem; position:absolute; height:10rem; width:15rem; border: 0.125rem solid #4CAF50;" placeholder="Location">
+
+ 
+
+ 
+     </div>
+   </article>
+
+
+
+ <div class="big">
+  <article class="recipe" style="position:relative;left:10rem;top:2.7rem;">
+   <div class="pizza-box img1">
+     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn6URRaHuu4uBYd7t5I0FNNtc78Gv2bdy-3A&usqp=CAU" style="position:relative; height:7rem;width:7rem;">
+   </div>
+   <div class="recipe-content">
+
+     <h1 class="recipe-title"style="padding-right: 2rem; position:relative;"><a>Veg Sandwich</a></h1>
+     <h1 class="recipe-title"style="padding-right: 2rem; position:relative;"><a>Rs 50</a></h1>
+     <div class="counter" style="position:relative; left:15rem;bottom:2rem;">
+      <button class="counter-btn minus" id="counter-btn minus">-</button>
+      <span class="counter-value" id="counter-value">0</span>
+      <button class="counter-btn plus" id="counter-btn plus">+</button>
+    </div>
+
+   
+
+
+   </div>
+ </article>
+
+ <article class="recipe" style="position:absolute;top:32.85rem; left:63rem;">
+  <div class="pizza-box img1">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn6URRaHuu4uBYd7t5I0FNNtc78Gv2bdy-3A&usqp=CAU" style="position:relative; height:7rem;width:7rem;">
+  </div>
+  <div class="recipe-content">
+
+    <h1 class="recipe-title"style="padding-right: 2rem; position:relative;"><a>Veg Sandwich</a></h1>
+    <h1 class="recipe-title"style="padding-right: 2rem; position:relative;"><a>Rs 50</a></h1>
+    <div class="counter" style="position:relative; left:15rem;bottom:2rem;">
+     <button class="counter-btn minus" id="counter-btn minus">-</button>
+     <span class="counter-value" id="counter-value">0</span>
+     <button class="counter-btn plus" id="counter-btn plus">+</button>
+   </div>
+
+
+
+
+  </div>
+</article>
+</div>
+ 
+<div class="big">
+  <article class="recipe" style="position:relative;left:10rem;top:2.7rem;">
+   <div class="pizza-box img1">
+     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn6URRaHuu4uBYd7t5I0FNNtc78Gv2bdy-3A&usqp=CAU" style="position:relative; height:7rem;width:7rem;">
+   </div>
+   <div class="recipe-content">
+
+     <h1 class="recipe-title"style="padding-right: 2rem; position:relative;"><a>Veg Sandwich</a></h1>
+     <h1 class="recipe-title"style="padding-right: 2rem; position:relative;"><a>Rs 50</a></h1>
+     <div class="counter" style="position:relative; left:15rem;bottom:2rem;">
+      <button class="counter-btn minus" id="counter-btn minus">-</button>
+      <span class="counter-value" id="counter-value">0</span>
+      <button class="counter-btn plus" id="counter-btn plus">+</button>
+    </div>
+
+   
+
+
+   </div>
+ </article>
+
+ <article class="recipe" style="position:absolute;top:44.55rem; left:63rem;">
+  <div class="pizza-box img1">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn6URRaHuu4uBYd7t5I0FNNtc78Gv2bdy-3A&usqp=CAU" style="position:relative; height:7rem;width:7rem;">
+  </div>
+  <div class="recipe-content">
+
+    <h1 class="recipe-title"style="padding-right: 2rem; position:relative;"><a>Veg Sandwich</a></h1>
+    <h1 class="recipe-title"style="padding-right: 2rem; position:relative;"><a>Rs 50</a></h1>
+    <div class="counter" style="position:relative; left:15rem;bottom:2rem;">
+     <button class="counter-btn minus" id="counter-btn minus">-</button>
+     <span class="counter-value" id="counter-value">0</span>
+     <button class="counter-btn plus" id="counter-btn plus">+</button>
+   </div>
+
+
+
+
+  </div>
+</article>
+</div>
+
+<div class="big">
+  <article class="recipe" style="position:relative;left:10rem;top:2.7rem;">
+   <div class="pizza-box img1">
+     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn6URRaHuu4uBYd7t5I0FNNtc78Gv2bdy-3A&usqp=CAU" style="position:relative; height:7rem;width:7rem;">
+   </div>
+   <div class="recipe-content">
+
+     <h1 class="recipe-title"style="padding-right: 2rem; position:relative;"><a>Veg Sandwich</a></h1>
+     <h1 class="recipe-title"style="padding-right: 2rem; position:relative;"><a>Rs 50</a></h1>
+     <div class="counter" style="position:relative; left:15rem;bottom:2rem;">
+      <button class="counter-btn minus" id="counter-btn minus">-</button>
+      <span class="counter-value" id="counter-value">0</span>
+      <button class="counter-btn plus" id="counter-btn plus">+</button>
+    </div>
+
+   
+
+
+   </div>
+ </article>
+
+ <article class="recipe" style="position:absolute;top:57.75rem; left:63rem;">
+  <div class="pizza-box img1">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn6URRaHuu4uBYd7t5I0FNNtc78Gv2bdy-3A&usqp=CAU" style="position:relative; height:7rem;width:7rem;">
+  </div>
+  <div class="recipe-content">
+
+    <h1 class="recipe-title"style="padding-right: 2rem; position:relative;"><a>Veg Sandwich</a></h1>
+    <h1 class="recipe-title"style="padding-right: 2rem; position:relative;"><a>Rs 50</a></h1>
+    <div class="counter" style="position:relative; left:15rem;bottom:2rem;">
+     <button class="counter-btn minus" id="counter-btn minus">-</button>
+     <span class="counter-value" id="counter-value">0</span>
+     <button class="counter-btn plus" id="counter-btn plus">+</button>
+   </div>
+
+
+
+
+  </div>
+</article>
 </div>
 
 
 
+<!-- <form class="form" style="position: absolute; left:65rem; top:75rem;">
+  <p id="heading">Details</p>
+  <div class="field">
 
-<form style="position:absolute; left:60rem;">
-  <label for="name">Name:</label>
-  <input type="text" id="name" name="name">
-  
-  <label for="phone">Phone Number:</label>
-  <input type="text" id="phone" name="phone">
-  
+    <input autocomplete="off" placeholder="Name" class="input-field" type="text">
+  </div>
+  <div class="field">
 
-</form>
-<div style="position:absolute; top:80rem;">
-  <button class="place-order-btn" style="position:absolute; left:95rem; width:10rem;">Place Order</button></div>
+    <input placeholder="Phone Number" class="input-field" type="text">
+  </div>
+  <div class="btn">
+
+</form> -->
+
+<div class="number-display" style="position: absolute; left:75rem; top:85rem; height:5rem; width:10rem;">
+  <h2 id="number-value">Total Price</h2>
+</div>
+
+
+<div style="position: absolute; left:95rem; top:84.2rem; height:10rem; width:15rem;">
+  <button class="green-oval-button">Place Order</button></div>
 
 
 
-
-      
-      
       <script src="menu.js">
       </script> 
       <body>

@@ -131,50 +131,47 @@ input[type="checkbox"]:checked + .checkbox:before {
   }
   
   .dropdown {
-    position: absolute;
-    display: inline-block;
-    height:3rem;
-    padding-top: 3rem;
-    overflow: visible;
-   z-index: 1;
+	position: relative;
+	display: inline-block;
   }
   
-  .dropbtn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
+  .dropdown .dropbtn {
+	background-color: green;
+	color: white;
+	font-size: 16px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 10px 20px;
+	border-radius: 50px; /* Set the border-radius to half of the height to make it oval-shaped */
   }
   
   .dropdown-content {
-    display: none;
-    position: relative;
-    right: 0;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    overflow: visible;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-
-   width: 100px;
-   padding-right: 0px;
-   
+	display: none;
+	position: absolute;
+	background-color: white;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+	border-radius: 50px; /* Set the border-radius to half of the height to make it oval-shaped */
   }
   
   .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+	border-radius: 50px; /* Set the border-radius to half of the height to make it oval-shaped */
   }
   
   .dropdown:hover .dropdown-content {
-    display: block;
-    right:0;
+	display: block;
   }
+  
+  .dropdown:hover .dropbtn {
+	background-color: darkgreen;
+  }
+  
 
   .green-border {
     position:relative;
@@ -209,7 +206,7 @@ input[type="checkbox"]:checked + .checkbox:before {
  
   
   body {
-    min-height: 95rem;
+    min-height: 90rem;
   }
 
 /* The switch - the box around the slider */
@@ -268,42 +265,227 @@ input:checked + .slider:before {
   background-color: #fff;
 }
   
-form {
-  background-color: #77dd77;
-  border-radius: 10px;
-  padding: 20px;
-  width: 300px;
+
+
+.recipe,
+.pizza-box {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	position:relative;
+	width:45rem;
 }
 
-label {
-  display: block;
-  margin-bottom: 10px;
+.pizza-box {
+	width: 15rem; /* Set the width of the box to 100% to fill its container */
+	height: 10rem; /* Set the height of the box to any value you want */
+	overflow: hidden; 
+	
+
+
+
+
 }
 
-input[type="text"] {
-  border-radius: 5px;
-  border: none;
-  padding: 10px;
-  width: 100%;
-  box-sizing: border-box;
-  margin-bottom: 20px;
+.img1 {
+	width: 10rem; 
+	position:relative;/* Set the width of the image to 2/3 of the box */
+	height: 10rem; /* Set the height of the image to scale proportionally */
+	display: flex; /* Remove any default spacing around the image */
+	/* Center the image horizontally */
+	padding-left: 1rem;
+}
+.recipe {
+	border: 2px solid #F2F2F2;
+	border-radius: 8px;
+	overflow: hidden;
+	border-color: #218838;
+	
+	&-content {
+		padding: 16px 32px;
+		flex: 4 1 40ch;
+		
+	}
+	
+	&-tags {
+		margin: 0 -8px;
+	}
+
+	&-tag {
+		display: inline-block;
+		margin: 8px;
+		font-size: .875em;
+		text-transform: uppercase;
+		font-weight: 600;
+		letter-spacing: .02em;
+		color: var(--primary);
+	}
+	
+	&-title {
+		margin: 0;
+		font-size: clamp(1.4em, 2.1vw, 2.1em);
+		font-family: "Roboto Slab", Helvetica, Arial, sans-serif;
+		
+		a {
+			text-decoration: none;
+			color: inherit;
+		}
+	}
+	
+
 }
 
-input[type="submit"] {
-  background-color: #fff;
-  border-radius: 5px;
-  border: none;
-  color: #77dd77;
-  padding: 10px 20px;
-  cursor: pointer;
+
+
+Body Layout
+* {
+	box-sizing: border-box;
 }
 
-input[type="submit"]:hover {
-  background-color: #77dd77;
-  color: #fff;
+
+
+
+.big {
+	width: clamp(320px, 65%, 65%);
+	padding: 24px;
+}
+.small {
+	width: clamp(320px, 35%, 480px);
+	padding: 24px;
 }
   
+
+.input-label {
+	display: block;
+	font-size: 16px;
+	color: black;
+	margin-bottom: 10px;
+  }
+  
+  .input-box {
+	display: block;
+	width: 100%;
+	padding: 12px 20px;
+	border: 1px solid #7cac7a;
+	border-radius: 5px;
+	box-sizing: border-box;
+	margin-bottom: 20px;
+	font-size: 16px;
+	color: black;
+	border: 2px solid green;
+	background-color: white;
+	opacity: 0.8;
+	
+  }
+  
+  .input-box:focus {
+	outline: none;
+	border-color: #5b7f5b;
+	box-shadow: 0px 0px 5px #5b7f5b;
+  }
+
+
+  .form {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	padding-left: 2em;
+	padding-right: 2em;
+	padding-bottom: 0.4em;
+	
+	background-color: green;
+	opacity: 0.8;
+	border-radius: 25px;
+	transition: .4s ease-in-out;
+  }
+  
+  .form:hover {
+	transform: scale(1.05);
+	border: 1px solid black;
+  }
+  
+  #heading {
+	text-align: center;
+	margin: 2em;
+	color: rgb(255, 255, 255);
+	font-size: 1.2em;
+  }
+  
+  .field {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5em;
+	border-radius: 25px;
+	padding: 0.6em;
+	border: none;
+	outline: none;
+	color: white;
+	background-color: #171717;
+	box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+  }
+  
+  .input-icon {
+	height: 1.3em;
+	width: 1.3em;
+	fill: white;
+  }
+  
+  .input-field {
+	background: none;
+	border: none;
+	outline: none;
+	width: 100%;
+	
+	color: #d3d3d3;
+  }
+  
+  .form .btn {
+	display: flex;
+	justify-content: center;
+	background-color: green;
+	opacity: 0.8;
+	flex-direction: row;
+	margin-top: 2.5em;
+  }
+  
+
+  
+
+  .green-oval-button {
+	background-color: green; /* Green background color */
+	color: white; /* Text color */
+	border: none; /* Remove border */
+	border-radius: 50px; /* Make it a long oval shape */
+	padding: 10px 20px; /* Add some padding */
+	text-align: center; /* Center the text */
+	text-decoration: none; /* Remove underline */
+	display: inline-block; /* Make it an inline element */
+	font-size: 16px; /* Set font size */
+	margin: 20px; /* Add margin */
+  }
   
   
+  .number-display {
+	background-color: #f1f1f1; /* Light gray background */
+	border: 2px solid green; /* Light gray border */
+	border-radius: 10px; /* Rounded corners */
+	padding: 20px; /* Add some padding */
+	text-align: center; /* Center the text */
+  }
+  
+  #number-value {
+	font-size: 20px; /* Set font size */
+	font-weight: bold; /* Make the text bold */
+	margin: 0; /* Remove margin */
+  }
+  
+  
+
+  .recipe:hover {
+	transform: scale(1.1);
+	box-shadow: 0px 0px 10px #ccc;
+  }
+
   
   
