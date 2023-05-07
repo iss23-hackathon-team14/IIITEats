@@ -1,0 +1,77 @@
+.heading {
+  margin-top: 10vh;
+}
+
+.login_container {
+  display: grid;
+  grid-template-columns: 2fr 5fr;
+  width: 60%;
+  height: 60%;
+}
+
+.login_image {
+  background-color: green;
+}
+
+form {
+  width: 100%;
+  height: 100%;
+}
+
+.login_svg {
+    height: 10rem;
+    width: 10rem;
+}
+
+.login_fields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.field > svg {
+  height: 1.5rem;
+  width: 1.5rem;
+  fill: gray;
+}
+
+.field {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.field > input {
+    background: none;
+    border: none;
+    outline: none;
+    height: 2.2rem;
+    font-size: 1.5rem;
+    font-family: "OpenSans";
+    border-bottom: solid 1px rgba(0, 0, 0, 0.3);
+    padding-bottom: 0.5rem;
+    transition: 0.5s;
+}
+
+.field > input:focus {
+    border-bottom: solid 1.5px rgba(0, 0, 0, 0.8);
+}
+
+.field > input::placeholder {
+    color: gray;
+}
+
+button {
+    background: none;
+    border: none;
+    background-color: green;
+    color: white;
+    font-family: "OpenSans";
+    font-size: 1.5rem;
+    height: 3rem;
+    width: 9rem;
+    border-radius: 2rem;
+
+}
