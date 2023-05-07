@@ -28,6 +28,7 @@ table {
 }
 
 .small-row {
+  display: flex;
   height: 50px; 
 }
 

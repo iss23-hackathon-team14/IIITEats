@@ -379,21 +379,23 @@ def api_orders():
             elif data["action"] == "accept":
                 query = """
                     UPDATE orders SET order_status = 'accepted', order_deliverer_id = ?
-                    WHERE order_id = ?
+                    WHERE order_id = ? AND order_status != 'cancelled'
                     """
                 values = (session["phone"], data["order_id"])
 
             elif data["action"] == "cancel":
                 query = (
                     "UPDATE orders SET order_status = 'cancelled' WHERE order_id = ? "
-                    "AND (order_deliverer_id = ? OR order_placer_id = ?)"
+                    "AND order_status not in ('indelivery', 'delivered') AND "
+                    "(order_deliverer_id = ? OR (order_placer_id = ? AND order_status != 'accepted'))"
                 )
+
                 values = data["order_id"], session["phone"], session["phone"]
 
             elif data["action"] in ("indelivery", "delivered"):
                 query = (
                     f"UPDATE orders SET order_status = '{data['action']}' "
-                    "WHERE order_id = ? AND order_deliverer_id = ?"
+                    "WHERE order_status != 'cancelled' AND order_id = ? AND order_deliverer_id = ?"
                 )
                 values = data["order_id"], session["phone"]
 
@@ -452,4 +454,4 @@ def api_orders():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, host=os.environ.get("HOST_IP", "127.0.0.1"))
+    app.run(host=os.environ.get("HOST_IP", "127.0.0.1"))
