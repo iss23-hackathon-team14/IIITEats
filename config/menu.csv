@@ -1,11 +1,44 @@
-canteen_id,item_name,item_is_veg,item_cost
-1,Mango Juice,1,38
-1,Apple Juice,1,38
-1,Cold Coffee,1,32
-1,Chocolate,1,32
-1,Rose Milk,1,27
-1,Lemon Soda,1,20
-1,Oreo shake,1,37
-1,Paneer Frankie,1,50
-1,Egg Frankie,0,70
-1,Chicken Frankie,0,70
+canteen_id,item_name,item_is_veg,item_cost,item_img
+1,Mango Juice,1,38,https://www.whiskaffair.com/wp-content/uploads/2021/06/Mango-Juice-2-3.jpg
+1,Orange Juice,1,38,https://media.istockphoto.com/id/152971676/photo/glass-of-orange-juice-and-fresh-oranges.jpg?s=612x612&w=0&k=20&c=PLfvkn63OMHN8epb8F9Yfx48BsBOxWzfwL2BSWdV1Nw=
+1,Apple Juice,1,38,https://www.alphafoodie.com/wp-content/uploads/2021/11/Apple-Juice-Square.jpeg
+1,Tea,1,20,"https://static.toiimg.com/thumb/msid-70702395,width-1280,resizemode-4/70702395.jpg"
+1,Coffee,1,32,"https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1200-630,f_auto,q_auto:best/newscms/2019_33/2203981/171026-better-coffee-boost-se-329p.jpg"
+1,Chocolate Shake,1,32,"https://hips.hearstapps.com/hmg-prod/images/delish-220524-chocolate-milkshake-001-ab-web-1654180529.jpg?crop=0.647xw:0.972xh;0.177xw,0.0123xh&resize=1200:*"
+1,Rose Milk,1,27,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIUN22qssohzbzEgbhQIcEf4sOQTwqBFFiGw&usqp=CAU
+1,Lemon Soda,1,20,https://www.sharmispassions.com/wp-content/uploads/2021/12/LemonSoda1-500x500.jpg
+1,Oreo shake,1,37,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLSo49JHQQAf7-Gw-hKCNvlF298VSG6n7VxQ&usqp=CAU
+1,Veg Frankie,1,40,https://www.indianhealthyrecipes.com/wp-content/uploads/2019/10/veg-roll-frankie.jpg
+1,Paneer Frankie,1,50,https://www.vegrecipesofindia.com/wp-content/uploads/2017/01/paneer-kathi-roll-recipe-1.jpg
+1,Egg Frankie,0,70,https://www.archanaskitchen.com/images/archanaskitchen/street_food/Egg_Roll_Recipe_Figaro_Olive_Oil-1-2.jpg
+1,Chicken Frankie,0,70,https://www.licious.in/blog/wp-content/uploads/2022/06/shutterstock_311878256-600x600.jpg
+2,Coffee,1,25,"https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1200-630,f_auto,q_auto:best/newscms/2019_33/2203981/171026-better-coffee-boost-se-329p.jpg"
+2,Tea,1,20,"https://static.toiimg.com/thumb/msid-70702395,width-1280,resizemode-4/70702395.jpg"
+2,Apple Juice,1,35,https://www.alphafoodie.com/wp-content/uploads/2021/11/Apple-Juice-Square.jpeg
+2,Grape Juice,1,37,https://cdn2.foodviva.com/static-content/food-images/juice-recipes/grape-juice/grape-juice.jpg
+2,Veg Maggi,1,25,https://i.ytimg.com/vi/T09CbMLq6Wo/maxresdefault.jpg
+2,Atta Maggi,1,35,https://img-global.cpcdn.com/recipes/2e31787b2536a5fd/1200x630cq70/photo.jpg
+2,Chicken Maggi,0,27,https://i.ytimg.com/vi/kXIH3-Fklis/maxresdefault.jpg
+2,Plain Dosa,1,40,https://thumbs.dreamstime.com/b/masala-dosa-chutney-sambaar-traditionally-south-indian-dish-masala-dosa-chutney-sambaar-traditionally-south-96973772.jpg
+2,Karam Dosa,1,55,https://www.archanaskitchen.com/images/archanaskitchen/1-Author/sibyl_sunitha/Andhra_Style_Erra_Kaaram_Dosa_Recipe_Spicy_Red_Chilli_Chutney_Dosa_Recipe.jpg
+2,Masala Dosa,1,45,https://www.indianhealthyrecipes.com/wp-content/uploads/2021/06/masala-dosa-recipe.jpg
+2,Egg Dosa,0,60,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQneXKHd7bGB51VqTqrqMc_24RSjJTGYGI9itBENwvWCccXQXq051lAWgzErBU8CVnCc-Q&usqp=CAU
+2,Paneer Dosa,1,75,https://www.archanaskitchen.com/images/archanaskitchen/0-Saffola_FitFoodie/5-chilli_paneer_and_oats_dosa_recipe_400.jpg
+3,Plain Dosa,1,35,https://thumbs.dreamstime.com/b/masala-dosa-chutney-sambaar-traditionally-south-indian-dish-masala-dosa-chutney-sambaar-traditionally-south-96973772.jpg
+3,Masala Dosa,1,50,https://www.indianhealthyrecipes.com/wp-content/uploads/2021/06/masala-dosa-recipe.jpg
+3,Cheese Dosa,1,50,https://www.indianhealthyrecipes.com/wp-content/uploads/2016/09/cheese-dosa-recipe-500x500.jpg
+3,Plain Maggi,1,35,https://i.ytimg.com/vi/XiUAkLoQsFw/maxresdefault.jpg
+3,Veg Maggi,1,45,https://i.ytimg.com/vi/T09CbMLq6Wo/maxresdefault.jpg
+3,Cheese Maggi,1,50,https://i.pinimg.com/736x/48/c0/06/48c006871d4e88a7df47fba85b699fcc.jpg
+3,Double Egg Maggi ,0,65,https://lh3.googleusercontent.com/cQ0q9qaC7KiDOIJ2mtFUq7eU2Jf1JzfHFnieAMtNTwtYuOM7an8GIAmal1kWwp3QaoVa97Ah_21m2FKd66oIBckSPeZKX1iDIqzt1uw
+3,Egg Maggi,0,55,"https://cdn.tarladalal.com/members/9306/big/big_egg_noodles,_spicy_maggi_egg_noodles-14670.jpg"
+3,Chicken Maggi,0,65,https://i.ytimg.com/vi/kXIH3-Fklis/maxresdefault.jpg
+4,Veg Sandwich,1,45,https://www.foodandwine.com/thmb/gv06VNqj1uUJHGlw5e7IULwUmr8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/2012-r-xl-vegetable-sandwich-with-dill-sauce-2000-0984c1b513ae4af396aee039afa5e38c.jpg
+4,Corn Sandwich,1,45,https://www.vegrecipesofindia.com/wp-content/uploads/2013/07/corn-sandwich-recipe-1-500x375.jpg
+4,Paneer Sandwich,1,50,https://www.vegrecipesofindia.com/wp-content/uploads/2017/01/paneer-sandwich-recipe-1-500x500.jpg
+4,Veg Puff,1,25,https://www.carveyourcraving.com/wp-content/uploads/2021/11/veg-puff-recipe.jpg
+4,Chicken Puff,0,35,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnY7HyI60oy8EdWr_YqZzAjRDggP6FxAo20A&usqp=CAU
+4,Veg Shawarma,1,60,https://i.pinimg.com/736x/10/6e/2c/106e2cca19fb15efec600f4f717b1d01.jpg
+4,Chicken Shawarma,0,80,https://therecipecritic.com/wp-content/uploads/2022/05/chickenshawarma-2.jpg
+4,Veg Samosa,1,27,https://thumbs.dreamstime.com/b/samosa-mint-chutney-20396975.jpg
+4,Chicken Samosa,0,40,https://www.mapsofindia.com/ci-moi-images/my-india/2014/07/Chicken-Samosa.jpg
