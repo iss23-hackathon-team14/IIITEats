@@ -4,6 +4,7 @@ from datetime import date, datetime
 import csv
 import sqlite3
 from pathlib import Path
+import os
 
 from flask import (
     Flask,
@@ -451,4 +452,4 @@ def api_orders():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host=os.environ.get("HOST_IP", "127.0.0.1"))

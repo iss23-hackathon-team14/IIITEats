@@ -46,7 +46,20 @@ title %}Home{% endblock %} {% block extra_stylesheets %}
         <img src="{{ item.img }}" />
       </div>
       <div class="item_content">
-        <div class="item_name">{{ item.name }}</div>
+        <div class="item_name">
+          {{ item.name }}
+          {% if item.is_veg %}
+          <img
+            src="https://foodsafetyhelpline.com/wp-content/uploads/2013/05/veg-300x259.jpg"
+            style="height: 1.5rem; width: 1.5rem"
+          />
+          {% else %}
+          <img
+            src="https://foodsafetyhelpline.com/wp-content/uploads/2013/05/non-veg-300x259.jpg"
+            style="height: 1.5rem; width: 1.5rem"
+          />
+          {% endif %}
+        </div>
         <div class="item_price">₹{{ item.cost }}</div>
       </div>
       <div class="counter">
