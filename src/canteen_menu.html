@@ -4,7 +4,7 @@
 {% endblock %} {% block content %}
 <div class="background">
   <div class="heading">{{ canteens[canteen_id].name }}</div>
-  <a class="placed_orders_link">View placed orders</a>
+  <a class="placed_orders_link" href="/canteens/{{ canteen_id }}/orders">View placed orders</a>
   <div class="filters">
     <!--
     <div class="veg_slider">

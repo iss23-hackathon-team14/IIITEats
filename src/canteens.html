@@ -15,7 +15,7 @@
 
     <div class="canteen_container">
         {% for canteen_id, canteen in canteens.items() %}
-        <div class="canteen" onclick="location.href = 'canteens/{{ canteen_id }}'">
+        <div class="canteen" onclick="location.href = 'canteens/{{ canteen_id }}/menu'">
             {{ canteen.name }}
         </div>
         {% endfor %}

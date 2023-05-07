@@ -59,8 +59,10 @@ function place_order() {
         dest_id: dest_id,
         dest_info: dest_info,
         cost: total_cost,
+    }).then(function () { 
+        location.href = "/orders.html" 
     });
-    location.href = "/orders"
+
 }
 
 

@@ -124,9 +124,13 @@ _, canteen_values = load_csv("canteens")
 _, menu_values = load_csv("menu")
 for canteen_id, canteen_name, canteen_description in canteen_values:
     menu = {}
-    for cnt, (menu_canteen_id, item_name, item_is_veg, item_cost, item_img) in enumerate(
-        menu_values, 1
-    ):
+    for cnt, (
+        menu_canteen_id,
+        item_name,
+        item_is_veg,
+        item_cost,
+        item_img,
+    ) in enumerate(menu_values, 1):
         if menu_canteen_id == canteen_id:
             menu[cnt] = {
                 "name": item_name,
@@ -208,25 +212,27 @@ def send_index():
     return redirect("/canteens.html")
 
 
-@app.route("/canteens/<int:canteen_id>")
-def handle_canteens(canteen_id):
+@app.route("/canteens/<int:canteen_id>/<name>")
+def handle_canteens(canteen_id, name):
+    if name not in ("menu", "orders") or not 1 <= canteen_id <= len(
+        template_context["canteens"]
+    ):
+        abort(404)
+
     session["prev_url"] = request.path
     if "phone" not in session:
         return redirect(f"/login")
 
-    return render_template("menu.html", **template_context, canteen_id=canteen_id)
-
-@app.route("/canteens/<int:canteen_id>/view")
-def handle_canteens_view(canteen_id):
-    session["prev_url"] = request.path
-    if "phone" not in session:
-        return redirect(f"/login")
-
-    return render_template("vieworder.html", **template_context, canteen_id=canteen_id)
+    return render_template(
+        f"canteen_{name}.html", **template_context, canteen_id=canteen_id
+    )
 
 
 @app.route("/<name>.html")
 def handle_src(name: str):
+    if name not in ("canteens", "about", "orders"):
+        abort(404)
+
     session["prev_url"] = request.path
     return render_template(name + ".html", **template_context)
 
@@ -355,11 +361,14 @@ def api_orders():
                     UPDATE orders SET order_status = 'accepted', order_deliverer_id = ?
                     WHERE order_id = ?
                     """
-                values = (data["deliverer_id"], data["order_id"])
+                values = (session["phone"], data["order_id"])
 
-            elif data["action"] == "set_status":
-                query = "UPDATE orders SET order_status = ? WHERE order_id = ?"
-                values = (data["status"], data["order_id"])
+            elif data["action"] == "cancel":
+                query = (
+                    "UPDATE orders SET order_status = 'cancelled' WHERE order_id = ? "
+                    "AND (order_deliverer_id = ? OR order_placer_id = ?)"
+                )
+                values = data["order_id"], session["phone"], session["phone"]
 
             else:
                 abort(400)
@@ -373,7 +382,13 @@ def api_orders():
             return do_select(
                 cur,
                 "orders",
-                ["order_id", "order_canteen_id", "order_dest_id", "order_dest_info"],
+                [
+                    "order_id",
+                    "order_canteen_id",
+                    "order_dest_id",
+                    "order_dest_info",
+                    "order_cost",
+                ],
                 {"order_status": "'placed'", "order_canteen_id": action},
             )
 

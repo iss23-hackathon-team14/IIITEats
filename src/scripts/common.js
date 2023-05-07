@@ -4,7 +4,7 @@ const ORDERS_URL = "/api/orders";
 const ORDERS_URL_GET = `${ORDERS_URL}?`;
 
 function post_obj_orders(obj) {
-    fetch(ORDERS_URL, {
+    return fetch(ORDERS_URL, {
         method: 'POST',
         body: JSON.stringify(obj),
         headers: {

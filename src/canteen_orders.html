@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% set active_page = "/orders.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block extra_stylesheets %}
+<link rel="stylesheet" href="/css/vieworder.css">
+{% endblock %}
+
+{% block content %}
+<div class="background">
+	<div class="heading">Available Orders</div>
+	<div class="container" id="order-container">
+	</div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+	const canteen_id = {{ canteen_id }};
+	const canteen = {{ canteens[canteen_id]|tojson }};
+	const locations = {{ locations|tojson }};
+</script>
+<script src="/scripts/canteen_orders.js"></script>
+{% endblock %}
