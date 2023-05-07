@@ -1,12 +1,16 @@
-<!DOCTYPE html>
-<html>
-	<header>
-		<h1 style="top:2rem;position:relative;">Available Orders</h1>
-	</header>
-<body>
-    <link href="vieword.css" rel="stylesheet">
-	
-	<div class="container" style="position:relative; top:2rem;">
+{% extends 'base.html' %}
+{% set active_page = "/vieworder.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block extra_stylesheets %}
+<link rel="stylesheet" href="/css/vieworder.css">
+{% endblock %}
+
+{% block content %}
+<div class="background">
+	<div class="heading">Available Orders</div>
+	<div class="container">
 		<div class="order-card" style="position:relative; top:2rem; right:10rem;">
 			<h2>JC</h2>
 			
@@ -80,5 +84,9 @@
 			<button id="accept">Accept Order</button>
 		</div>
 	</div>
-</body>
-</html>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<!-- Page specific js here -->
+{% endblock %}

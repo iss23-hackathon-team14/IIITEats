@@ -25,6 +25,7 @@
   justify-content: center;
   font-family: "OpenSans";
   font-size: 2rem;
+  height: 8vh;
 }
 
 .canteen:hover {
