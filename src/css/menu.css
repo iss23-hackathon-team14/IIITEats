@@ -290,7 +290,8 @@ select {
 }
 
 .item_image > img {
-  height: 40%;
+  height: 50px;
+  width: 50px;
 }
 
 .item_content {

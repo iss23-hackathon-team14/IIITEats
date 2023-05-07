@@ -14,10 +14,11 @@
     </div>
 
     <div class="canteen_container">
-        <div class="canteen">Juice Canteen</div>
-        <div class="canteen">Vindhya Canteen</div>
-        <div class="canteen">BBC</div>
-        <div class="canteen">CIE Canteen</div>
+        {% for canteen_id, canteen in canteens.items() %}
+        <div class="canteen" onclick="location.href = 'canteens/{{ canteen_id }}'">
+            {{ canteen.name }}
+        </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}

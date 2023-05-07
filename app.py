@@ -12,7 +12,10 @@ from flask import (
     render_template,
     request,
     send_from_directory,
+    session,
 )
+
+import secrets
 
 # source directory. Also used as flask templates
 SRC = "src"
@@ -86,12 +89,20 @@ def reset_table(name: str, *params: tuple[str, str]):
     populate_table_from_csv(name)
 
 
-def do_select(cur_obj: sqlite3.Cursor, name: str, fields: list[str]):
+def do_select(
+    cur_obj: sqlite3.Cursor, name: str, fields: list[str], extra_clauses: dict
+):
     """
     Helper to select from a table
     """
     fields_str = ",".join(fields)
-    cur_obj.execute(f"SELECT {fields_str} FROM {name}")
+    if extra_clauses:
+        where_part = " AND ".join(f"{k} = {v}" for k, v in extra_clauses.items())
+        clause = f"SELECT {fields_str} FROM {name} WHERE {where_part}"
+        cur_obj.execute(clause)
+    else:
+        cur_obj.execute(f"SELECT {fields_str} FROM {name}")
+
     ret = []
     for data in cur_obj.fetchall():
         data_dict = {}
@@ -104,8 +115,33 @@ def do_select(cur_obj: sqlite3.Cursor, name: str, fields: list[str]):
 
 
 # Define any common flask template context in this dict
-template_context = {i: load_csv_as_dict(i) for i in ("menu", "canteens", "locations")}
+template_context = {
+    "canteens": {},
+    "locations": {},
+}
 
+_, canteen_values = load_csv("canteens")
+_, menu_values = load_csv("menu")
+for canteen_id, canteen_name, canteen_description in canteen_values:
+    menu = {}
+    for cnt, (menu_canteen_id, item_name, item_is_veg, item_cost, item_img) in enumerate(
+        menu_values, 1
+    ):
+        if menu_canteen_id == canteen_id:
+            menu[cnt] = {
+                "name": item_name,
+                "is_veg": int(item_is_veg),
+                "cost": int(item_cost),
+                "img": item_img,
+            }
+
+    template_context["canteens"][int(canteen_id)] = {
+        "name": canteen_name,
+        "description": canteen_description,
+        "menu": menu,
+    }
+
+template_context["locations"] = {k: v for k, v in load_csv("locations")[1]}
 do_reset = not DB_FILE.exists()
 con = sqlite3.connect(DB_FILE)
 cur = con.cursor()
@@ -119,13 +155,16 @@ ORDER_FIELDS = (
     ("order_dest_id", "INTEGER"),
     ("order_dest_info", "TEXT"),
     ("order_deliverer_id", "INTEGER"),
+    ("order_placer_id", "INTEGER"),
+    ("order_cost", "INTEGER"),
 )
 
 USER_FIELDS = (
-    ("user_id", "INTEGER PRIMARY KEY AUTOINCREMENT"),
+    ("user_phone", "INTEGER PRIMARY KEY"),
     ("user_name", "TEXT"),
-    ("user_phone", "TEXT"),
+    ("user_password", "TEXT"),
 )
+
 if do_reset:
     reset_table("orders", *ORDER_FIELDS)
     reset_table("user", *USER_FIELDS)
@@ -135,6 +174,8 @@ if do_reset:
 con.close()
 
 app = Flask(__name__, template_folder="src")
+
+app.secret_key = secrets.token_urlsafe(32)
 
 
 @app.route("/images/<path:path>")
@@ -164,21 +205,122 @@ def send_js(name: str):
 
 @app.route("/")
 def send_index():
-    return redirect("/index.html")
+    return redirect("/canteens.html")
 
 
-@app.route("/canteens/<int:canteen_id>.html")
+@app.route("/canteens/<int:canteen_id>")
 def handle_canteens(canteen_id):
-    return render_template("canteen.html", **template_context, canteen_id=canteen_id)
+    session["prev_url"] = request.path
+    if "phone" not in session:
+        return redirect(f"/login")
+
+    return render_template("menu.html", **template_context, canteen_id=canteen_id)
+
+@app.route("/canteens/<int:canteen_id>/view")
+def handle_canteens_view(canteen_id):
+    session["prev_url"] = request.path
+    if "phone" not in session:
+        return redirect(f"/login")
+
+    return render_template("vieworder.html", **template_context, canteen_id=canteen_id)
 
 
 @app.route("/<name>.html")
 def handle_src(name: str):
+    session["prev_url"] = request.path
     return render_template(name + ".html", **template_context)
 
 
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    msg = ""
+    if request.method == "POST":
+        password = request.form.get("password", "")
+        if not password:
+            msg = "Password must be non-empty"
+
+        phone = request.form.get("phone", "")
+        try:
+            phone = int(phone)
+        except ValueError:
+            msg = "Phone number should be an integer!"
+
+        if not msg:
+            con = sqlite3.connect(DB_FILE)
+            try:
+                cur = con.cursor()
+                cur.execute(
+                    "SELECT * FROM user WHERE user_phone = ? AND user_password = ?",
+                    (phone, password),
+                )
+                if cur.fetchone():
+                    session["phone"] = phone
+                    return redirect(session.get("prev_url", "/index.html"))
+
+                else:
+                    msg = "Incorrect phone/password combination!"
+
+            finally:
+                con.close()
+
+    return render_template("login.html", msg=msg)
+
+
+@app.route("/logout")
+def logout():
+    session.pop("phone", None)
+    return redirect(session.get("prev_url", "/index.html"))
+
+
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    msg = ""
+    if request.method == "POST":
+        password = request.form.get("password", "")
+        if not password:
+            msg = "Password must be non-empty"
+
+        phone = request.form.get("phone", "")
+        try:
+            phone = int(phone)
+        except ValueError:
+            msg = "Invalid phone number (should be a non-empty number)!"
+
+        name = request.form.get("name", "")
+        if not name:
+            msg = "Name must be non-empty"
+
+        if not msg:
+            con = sqlite3.connect(DB_FILE)
+            try:
+                cur = con.cursor()
+                cur.execute(
+                    "SELECT * FROM user WHERE user_phone = ?",
+                    (phone,),
+                )
+                if cur.fetchone():
+                    msg = "Account already exists!"
+
+                else:
+                    cur.execute(
+                        "INSERT INTO user VALUES (?, ?, ?)",
+                        (phone, name, password),
+                    )
+                    con.commit()
+                    session["phone"] = phone
+                    return redirect(session.get("prev_url", "/index.html"))
+
+            finally:
+                con.close()
+
+    return render_template("register.html", msg=msg)
+
+
 @app.route("/api/orders", methods=["GET", "POST"])
-def api_place_order():
+def api_orders():
+    if "phone" not in session:
+        abort(403)
+
     con = sqlite3.connect(DB_FILE)
     try:
         cur = con.cursor()
@@ -194,14 +336,18 @@ def api_place_order():
                         order_canteen_id,
                         order_items,
                         order_dest_id,
-                        order_dest_info
-                    ) VALUES ('placed', ?, ?, ?, ?)
+                        order_dest_info,
+                        order_placer_id,
+                        order_cost
+                    ) VALUES ('placed', ?, ?, ?, ?, ?, ?)
                 """
                 values = (
                     data["canteen_id"],
                     data["items"],
                     data["dest_id"],
                     data["dest_info"],
+                    session["phone"],
+                    data["cost"],
                 )
 
             elif data["action"] == "accept":
@@ -222,7 +368,37 @@ def api_place_order():
             con.commit()
             return jsonify({"success": True})
 
-        return do_select(cur, "orders", [i[0] for i in ORDER_FIELDS])
+        action = request.args.get("action")
+        if action and action.isdigit():
+            return do_select(
+                cur,
+                "orders",
+                ["order_id", "order_canteen_id", "order_dest_id", "order_dest_info"],
+                {"order_status": "'placed'", "order_canteen_id": action},
+            )
+
+        elif action in ("deliverer", "placer"):
+            ret = do_select(
+                cur,
+                "orders",
+                [i[0] for i in ORDER_FIELDS],
+                {f"order_{action}_id": session["phone"]},
+            )
+            for d in ret:
+                for change in ("placer", "deliverer"):
+                    placer_id = d.get(f"order_{change}_id")
+                    if placer_id:
+                        ret = do_select(
+                            cur, "user", ["user_name"], {"user_phone": placer_id}
+                        )
+                        d[f"order_{change}_name"] = ret[0]["user_name"]
+                    else:
+                        d[f"order_{change}_name"] = None
+
+            return ret
+
+        else:
+            abort(400)
 
     except KeyError:
         abort(400)
