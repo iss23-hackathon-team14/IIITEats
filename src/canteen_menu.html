@@ -1,10 +1,12 @@
-{% extends 'base.html' %} {% set active_page = "/canteens.html" %} {% block title
-%}Home{% endblock %} {% block extra_stylesheets %}
+{% extends 'base.html' %} {% set active_page = "/canteens.html" %} {% block
+title %}Home{% endblock %} {% block extra_stylesheets %}
 <link rel="stylesheet" href="/css/menu.css" />
 {% endblock %} {% block content %}
 <div class="background">
   <div class="heading">{{ canteens[canteen_id].name }}</div>
-  <a class="placed_orders_link" href="/canteens/{{ canteen_id }}/orders">View placed orders</a>
+  <a class="placed_orders_link" href="/canteens/{{ canteen_id }}/orders"
+    >View placed orders</a
+  >
   <div class="filters">
     <!--
     <div class="veg_slider">
@@ -24,7 +26,7 @@
     -->
     <select class="locations" id="lang">
       {% for location_id, location_name in locations.items() %}
-        <option value="{{ location_id }}">{{ location_name }}</option>
+      <option value="{{ location_id }}">{{ location_name }}</option>
       {% endfor %}
       <option value="" selected disabled hidden>Select Landmark</option>
     </select>
@@ -41,29 +43,35 @@
     {% for item_id, item in canteens[canteen_id].menu.items() %}
     <div class="menu_item">
       <div class="item_image">
-        <img src="{{ item.img }}"/>
+        <img src="{{ item.img }}" />
       </div>
       <div class="item_content">
         <div class="item_name">{{ item.name }}</div>
         <div class="item_price">₹{{ item.cost }}</div>
       </div>
       <div class="counter">
-        <button class="counter-btn minus" onclick="menu_minus('{{ item_id }}')">-</button>
+        <button class="counter-btn minus" onclick="menu_minus('{{ item_id }}')">
+          -
+        </button>
         <span class="counter-value" id="counter-{{ item_id }}">0</span>
-        <button class="counter-btn plus" onclick="menu_plus('{{ item_id }}')">+</button>
+        <button class="counter-btn plus" onclick="menu_plus('{{ item_id }}')">
+          +
+        </button>
       </div>
     </div>
     {% endfor %}
-
-  <div class="submit_order_section">
-    <div class="order_total" id="order-total">Order Total: ₹0 </div>
-    <button class="green-oval-button" onclick="place_order()">Place Order</button>
   </div>
+  <div class="submit_order_section">
+    <div class="order_total" id="order-total">Order Total: ₹0</div>
+    <button class="green-oval-button" onclick="place_order()">
+      Place Order
+    </button>
+  </div>
+  {% endblock %} {% block extra_js %}
+  <script>
+    const canteen_id = {{ canteen_id }};
+    const items = {{ canteens[canteen_id].menu|tojson }};
+  </script>
+  <script src="/scripts/canteen_menu.js"></script>
+  {% endblock %}
 </div>
-{% endblock %} {% block extra_js %}
-<script>
-  const canteen_id = {{ canteen_id }};
-  const items = {{ canteens[canteen_id].menu|tojson }};
-</script>
-<script src="/scripts/canteen_menu.js"></script>
-{% endblock %}
