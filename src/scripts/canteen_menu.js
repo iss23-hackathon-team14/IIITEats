@@ -1,9 +1,11 @@
 const lang = document.getElementById("lang");
 const input = document.getElementById("input");
 
+const delivery_charge = 30;
+
 let items_dict = {}
 
-let total_cost = 0;
+let total_cost = delivery_charge;
 
 function menu_plus(item_id) {
     if (item_id in items_dict) {
@@ -27,7 +29,7 @@ function menu_minus(item_id) {
 }
 
 function update_total_cost() {
-    total_cost = 0;
+    total_cost = delivery_charge;
     for (const [key, value] of Object.entries(items_dict)) {
         total_cost += items[key]["cost"] * value;
     }
@@ -35,7 +37,7 @@ function update_total_cost() {
 }
 
 function place_order() {
-    if (total_cost <= 0) {
+    if (total_cost <= delivery_charge) {
         alert("Could not place order! No items were selected.");
         return;
     }
@@ -65,4 +67,4 @@ function place_order() {
 
 }
 
-
+update_total_cost();

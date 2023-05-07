@@ -48,7 +48,7 @@ get_canteen_orders().then(function () {
 function accept_order(order_id) {
     console.log(order_id)
     post_obj_orders({ action: 'accept', order_id: order_id }).then(function () { 
-        location.href = "/orders.html"; }
+        location.href = "/deliveries.html"; }
     )
 }
 

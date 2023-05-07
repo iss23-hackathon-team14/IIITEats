@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from datetime import date, datetime
 import csv
 import sqlite3
 from pathlib import Path
@@ -90,18 +91,27 @@ def reset_table(name: str, *params: tuple[str, str]):
 
 
 def do_select(
-    cur_obj: sqlite3.Cursor, name: str, fields: list[str], extra_clauses: dict
+    cur_obj: sqlite3.Cursor,
+    name: str,
+    fields: list[str],
+    extra_clauses: dict,
+    order: tuple[str, str] | None = None,
 ):
     """
     Helper to select from a table
     """
     fields_str = ",".join(fields)
+
+    order_str = ""
+    if order:
+        order_str = f" ORDER BY {order[0]} {order[1]}"
+
     if extra_clauses:
         where_part = " AND ".join(f"{k} = {v}" for k, v in extra_clauses.items())
-        clause = f"SELECT {fields_str} FROM {name} WHERE {where_part}"
+        clause = f"SELECT {fields_str} FROM {name} WHERE {where_part}{order_str}"
         cur_obj.execute(clause)
     else:
-        cur_obj.execute(f"SELECT {fields_str} FROM {name}")
+        cur_obj.execute(f"SELECT {fields_str} FROM {name}{order_str}")
 
     ret = []
     for data in cur_obj.fetchall():
@@ -161,6 +171,8 @@ ORDER_FIELDS = (
     ("order_deliverer_id", "INTEGER"),
     ("order_placer_id", "INTEGER"),
     ("order_cost", "INTEGER"),
+    ("order_date", "TINYTEXT"),
+    ("order_time", "TINYTEXT")
 )
 
 USER_FIELDS = (
@@ -234,6 +246,9 @@ def handle_src(name: str):
         abort(404)
 
     session["prev_url"] = request.path
+    if name in ("orders", "deliveries") and "phone" not in session:
+        return redirect(f"/login")
+
     return render_template(name + ".html", **template_context)
 
 
@@ -344,8 +359,10 @@ def api_orders():
                         order_dest_id,
                         order_dest_info,
                         order_placer_id,
-                        order_cost
-                    ) VALUES ('placed', ?, ?, ?, ?, ?, ?)
+                        order_cost,
+                        order_date,
+                        order_time
+                    ) VALUES ('placed', ?, ?, ?, ?, ?, ?, ?, ?)
                 """
                 values = (
                     data["canteen_id"],
@@ -354,6 +371,8 @@ def api_orders():
                     data["dest_info"],
                     session["phone"],
                     data["cost"],
+                    str(date.today()),
+                    str(datetime.now().strftime("%H:%M:%S"))
                 )
 
             elif data["action"] == "accept":
@@ -369,6 +388,13 @@ def api_orders():
                     "AND (order_deliverer_id = ? OR order_placer_id = ?)"
                 )
                 values = data["order_id"], session["phone"], session["phone"]
+
+            elif data["action"] in ("indelivery", "delivered"):
+                query = (
+                    f"UPDATE orders SET order_status = '{data['action']}' "
+                    "WHERE order_id = ? AND order_deliverer_id = ?"
+                )
+                values = data["order_id"], session["phone"]
 
             else:
                 abort(400)
@@ -390,6 +416,7 @@ def api_orders():
                     "order_cost",
                 ],
                 {"order_status": "'placed'", "order_canteen_id": action},
+                ("order_id", "DESC"),
             )
 
         elif action in ("deliverer", "placer"):
@@ -398,15 +425,16 @@ def api_orders():
                 "orders",
                 [i[0] for i in ORDER_FIELDS],
                 {f"order_{action}_id": session["phone"]},
+                ("order_id", "DESC"),
             )
             for d in ret:
                 for change in ("placer", "deliverer"):
                     placer_id = d.get(f"order_{change}_id")
                     if placer_id:
-                        ret = do_select(
+                        user = do_select(
                             cur, "user", ["user_name"], {"user_phone": placer_id}
                         )
-                        d[f"order_{change}_name"] = ret[0]["user_name"]
+                        d[f"order_{change}_name"] = user[0]["user_name"]
                     else:
                         d[f"order_{change}_name"] = None
 

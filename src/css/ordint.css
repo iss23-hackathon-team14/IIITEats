@@ -281,13 +281,25 @@ input:checked + .slider:before {
   align-items: center;
 }
 
-.cancel_order_button {
+.order_button {
   font-family: "OpenSans";
   font-size: 1.2rem;
   width: 10rem;
   border-radius: 3rem;
   border: none;
   cursor: pointer;
-  background-color: #ee0000;
   color: white;
 }
+
+.cancel_order_button {
+  background-color: #ee0000;
+}
+
+.indelivery_button {
+  background-color: #eed600;
+}
+
+.delivered_button {
+  background-color: #5fee00;
+}
+
