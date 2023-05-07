@@ -1,0 +1,170 @@
+{% extends 'base.html' %} {% set active_page = "/index.html" %} {% block title
+%}Home{% endblock %} {% block extra_stylesheets %}
+<link rel="stylesheet" href="/css/menu.css" />
+{% endblock %} {% block content %}
+<div class="background">
+  <div class="heading">JC</div>
+  <div class="filters">
+    <div class="veg_slider">
+      <img
+        src="https://foodsafetyhelpline.com/wp-content/uploads/2013/05/veg-300x259.jpg"
+        style="height: 1.5rem; width: 1.5rem"
+      />
+      <label class="switch">
+        <input type="checkbox" />
+        <span class="slider"></span>
+      </label>
+      <img
+        src="https://foodsafetyhelpline.com/wp-content/uploads/2013/05/non-veg-300x259.jpg"
+        style="height: 1.5rem; width: 1.5rem"
+      />
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">Select Landmark</button>
+      <div class="dropdown-content">
+        <a href="#">Bakul Nivas</a>
+        <a href="#">NBH</a>
+        <a href="#">OBH</a>
+        <a href="#">Parijat</a>
+      </div>
+    </div>
+    <input
+      type="text"
+      id="input"
+      name="input"
+      class="input-box"
+      placeholder="Enter Location"
+    />
+  </div>
+
+  <div class="food_item_grid">
+    <article class="recipe">
+      <div class="pizza-box img1">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn6URRaHuu4uBYd7t5I0FNNtc78Gv2bdy-3A&usqp=CAU"
+          style="position: relative; height: 7rem; width: 7rem"
+        />
+      </div>
+      <div class="recipe-content">
+        <h1
+          class="recipe-title"
+          style="padding-right: 2rem; position: relative"
+        >
+          <div class="item_name">Veg Sandwich</div>
+        </h1>
+        <h1
+          class="recipe-title"
+          style="padding-right: 2rem; position: relative"
+        >
+          <div class="item_price">50 ₹</div>
+        </h1>
+        <div
+          class="counter"
+          style="position: relative; left: 15rem; bottom: 2rem"
+        >
+          <button class="counter-btn minus" id="counter-btn minus">-</button>
+          <span class="counter-value" id="counter-value">0</span>
+          <button class="counter-btn plus" id="counter-btn plus">+</button>
+        </div>
+      </div>
+    </article>
+    <article class="recipe">
+      <div class="pizza-box img1">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn6URRaHuu4uBYd7t5I0FNNtc78Gv2bdy-3A&usqp=CAU"
+          style="position: relative; height: 7rem; width: 7rem"
+        />
+      </div>
+      <div class="recipe-content">
+        <h1
+          class="recipe-title"
+          style="padding-right: 2rem; position: relative"
+        >
+          <div class="item_name">Veg Sandwich</div>
+        </h1>
+        <h1
+          class="recipe-title"
+          style="padding-right: 2rem; position: relative"
+        >
+          <div class="item_price">50 ₹</div>
+        </h1>
+        <div
+          class="counter"
+          style="position: relative; left: 15rem; bottom: 2rem"
+        >
+          <button class="counter-btn minus" id="counter-btn minus">-</button>
+          <span class="counter-value" id="counter-value">0</span>
+          <button class="counter-btn plus" id="counter-btn plus">+</button>
+        </div>
+      </div>
+    </article>
+    <article class="recipe">
+      <div class="pizza-box img1">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn6URRaHuu4uBYd7t5I0FNNtc78Gv2bdy-3A&usqp=CAU"
+          style="position: relative; height: 7rem; width: 7rem"
+        />
+      </div>
+      <div class="recipe-content">
+        <h1
+          class="recipe-title"
+          style="padding-right: 2rem; position: relative"
+        >
+          <div class="item_name">Veg Sandwich</div>
+        </h1>
+        <h1
+          class="recipe-title"
+          style="padding-right: 2rem; position: relative"
+        >
+          <div class="item_price">50 ₹</div>
+        </h1>
+        <div
+          class="counter"
+          style="position: relative; left: 15rem; bottom: 2rem"
+        >
+          <button class="counter-btn minus" id="counter-btn minus">-</button>
+          <span class="counter-value" id="counter-value">0</span>
+          <button class="counter-btn plus" id="counter-btn plus">+</button>
+        </div>
+      </div>
+    </article>
+    <article class="recipe">
+      <div class="pizza-box img1">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn6URRaHuu4uBYd7t5I0FNNtc78Gv2bdy-3A&usqp=CAU"
+          style="position: relative; height: 7rem; width: 7rem"
+        />
+      </div>
+      <div class="recipe-content">
+        <h1
+          class="recipe-title"
+          style="padding-right: 2rem; position: relative"
+        >
+          <div class="item_name">Veg Sandwich</div>
+        </h1>
+        <h1
+          class="recipe-title"
+          style="padding-right: 2rem; position: relative"
+        >
+          <div class="item_price">50 ₹</div>
+        </h1>
+        <div
+          class="counter"
+          style="position: relative; left: 15rem; bottom: 2rem"
+        >
+          <button class="counter-btn minus" id="counter-btn minus">-</button>
+          <span class="counter-value" id="counter-value">0</span>
+          <button class="counter-btn plus" id="counter-btn plus">+</button>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <div class="submit_order_section">
+    <div class="order_total">Order Total:</div>
+    <button class="green-oval-button">Place Order</button>
+  </div>
+</div>
+{% endblock %} {% block extra_js %}
+<script src="menu.js"></script>
+{% endblock %}

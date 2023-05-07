@@ -1,0 +1,441 @@
+.heading {
+    margin-top: 10vw;
+}
+
+.filters {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+  align-items: center;
+}
+
+.veg_slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+td,
+th {
+  padding: 1rem;
+}
+
+.food {
+  margin-left: 1rem;
+  position: relative;
+}
+
+.tantra {
+  position: relative;
+  top: 2rem;
+  margin-top: 20rem;
+}
+
+.top {
+  position: absolute;
+  padding-top: 2rem;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+/* Style the custom checkbox */
+.checkbox {
+  display: inline-block;
+  position: relative;
+  width: 10rem;
+  height: 10rem;
+  background-color: #fff;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+/* Style the custom checkbox when checked */
+input[type="checkbox"]:checked + .checkbox:before {
+  content: "\2714";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 16px;
+  line-height: 1;
+  text-align: center;
+  width: 16px;
+  height: 16px;
+  background-color: #4caf50;
+  border-radius: 50%;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Style the custom checkbox on hover */
+.checkbox:hover {
+  border-color: #4caf50;
+}
+
+/* Style the custom checkbox on focus */
+.checkbox:focus {
+  outline: none;
+  box-shadow: 0px 0px 3px #4caf50;
+}
+
+.counter,
+.counter1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.counter-btn,
+.counter-btn1 {
+  padding: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  background-color: #28a745;
+  color: #fff;
+  cursor: pointer;
+}
+
+.counter-btn:hover,
+.counter-btn1:hover {
+  background-color: #218838;
+}
+
+.counter-btn:focus,
+.counter-btn1:focus {
+  outline: none;
+}
+
+.counter-value,
+.counter-value1 {
+  display: inline-block;
+  margin: 0 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown .dropbtn {
+  background-color: green;
+  color: white;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 50px; /* Set the border-radius to half of the height to make it oval-shaped */
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  /* border-radius: 50px; Set the border-radius to half of the height to make it oval-shaped */
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content > a:hover {
+  background-color: rgb(150, 150, 150);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: darkgreen;
+}
+
+.green-border {
+  position: relative;
+  margin-bottom: 2rem;
+  background-color: #ffffff;
+  border: 2rem solid #4caf50; /* green border */
+  border-color: #28a745;
+  padding: 10px; /* add padding for spacing */
+  font-size: 16px; /* set font size */
+  border-radius: 5px; /* add rounded corners */
+  outline: none; /* remove outline on focus */
+  height: 4rem;
+}
+
+.place-order-btn {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  height: 3rem;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.place-order-btn:hover {
+  background-color: #4caf50;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 3.5em;
+  height: 2em;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  border: 1px solid #adb5bd;
+  transition: 0.4s;
+  border-radius: 30px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.4em;
+  width: 1.4em;
+  border-radius: 20px;
+  left: 0.27em;
+  bottom: 0.25em;
+  background-color: #adb5bd;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #007bff;
+  border: 1px solid #007bff;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #007bff;
+}
+
+input:checked + .slider:before {
+  transform: translateX(1.4em);
+  background-color: #fff;
+}
+
+.recipe {
+    transition: 0.6s;
+}
+
+.recipe,
+.pizza-box {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  position: relative;
+  width: 45rem;
+}
+
+.pizza-box {
+  width: 15rem; /* Set the width of the box to 100% to fill its container */
+  height: 10rem; /* Set the height of the box to any value you want */
+  overflow: hidden;
+}
+
+.img1 {
+  width: 10rem;
+  position: relative; /* Set the width of the image to 2/3 of the box */
+  height: 10rem; /* Set the height of the image to scale proportionally */
+  display: flex; /* Remove any default spacing around the image */
+  /* Center the image horizontally */
+  padding-left: 1rem;
+}
+.recipe {
+  border: 2px solid #f2f2f2;
+  border-radius: 8px;
+  overflow: hidden;
+  border-color: #218838;
+}
+
+Body Layout * {
+  box-sizing: border-box;
+}
+
+.big {
+  width: clamp(320px, 65%, 65%);
+  padding: 24px;
+}
+.small {
+  width: clamp(320px, 35%, 480px);
+  padding: 24px;
+}
+
+.input-label {
+  display: block;
+  font-size: 16px;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.input-box {
+  display: block;
+  width: 40%;
+  padding: 12px 20px;
+  border: 1px solid #7cac7a;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+  color: black;
+  border: 2px solid green;
+  background-color: white;
+  opacity: 0.8;
+}
+
+.input-box:focus {
+  outline: none;
+  border-color: #5b7f5b;
+  box-shadow: 0px 0px 5px #5b7f5b;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-bottom: 0.4em;
+
+  background-color: green;
+  opacity: 0.8;
+  border-radius: 25px;
+  transition: 0.4s ease-in-out;
+}
+
+.form:hover {
+  transform: scale(1.05);
+  border: 1px solid black;
+}
+
+#heading {
+  text-align: center;
+  margin: 2em;
+  color: rgb(255, 255, 255);
+  font-size: 1.2em;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  border-radius: 25px;
+  padding: 0.6em;
+  border: none;
+  outline: none;
+  color: white;
+  background-color: #171717;
+  box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+}
+
+.input-icon {
+  height: 1.3em;
+  width: 1.3em;
+  fill: white;
+}
+
+.input-field {
+  background: none;
+  border: none;
+  outline: none;
+  width: 100%;
+
+  color: #d3d3d3;
+}
+
+.form .btn {
+  display: flex;
+  justify-content: center;
+  background-color: green;
+  opacity: 0.8;
+  flex-direction: row;
+  margin-top: 2.5em;
+}
+
+.green-oval-button {
+  background-color: green; /* Green background color */
+  color: white; /* Text color */
+  border: none; /* Remove border */
+  border-radius: 3rem; /* Make it a long oval shape */
+  text-align: center; /* Center the text */
+  text-decoration: none; /* Remove underline */
+  font-size: 1.2rem;
+  height: 3rem;
+  width: 10rem;
+  margin: 20px; /* Add margin */
+  cursor: pointer;
+}
+
+#number-value {
+  font-size: 20px; /* Set font size */
+  font-weight: bold; /* Make the text bold */
+  margin: 0; /* Remove margin */
+}
+
+.recipe:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 0px 10px #ccc;
+}
+
+.food_item_grid {
+  width: 80%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-family: "OpenSans";
+  row-gap: 1rem;
+}
+
+.submit_order_section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.order_total {
+  font-family: "OpenSans";
+  font-size: 1.5rem;
+}
