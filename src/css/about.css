@@ -1,0 +1,121 @@
+.table-container {
+  width: 100%;
+  height: 100vh; /* Replace with your desired height */
+  overflow-y: scroll; /* Add a scrollbar if content overflows */
+  margin-top: -50%;
+  margin-bottom: -50%;
+  
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  height: 100%;
+  position: relative;
+}
+
+/* td {
+  border: 1px solid black;
+  padding: 10px;
+} */
+
+.big-row {
+  height: 100px; 
+}
+
+.small-row {
+  height: 50px; 
+}
+
+.f{
+  font:black;
+  font-weight: bold;
+  font-size: 2rem;
+  font-family: "OpenSans";
+
+}
+
+.f1{
+  font:black;
+  font-weight: bold;
+  font-size: 1rem;
+  font-family: "OpenSans";
+}
+
+.f2{
+  font:black;
+  font-weight: bold;
+  font-size: 2rem;
+  text-align: center;
+  font-family: "OpenSans";
+}
+
+
+
+.team-member {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin: 20px;
+  padding: 20px;
+  max-width: 300px;
+
+}
+
+.team-member1 {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin: 20px;
+  padding: 20px;
+  position: absolute;
+  width:70%;
+  height:10rem;
+}
+
+
+.team-member img {
+  display: block;
+  margin: auto;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.team-member h2 {
+  margin-top: 20px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.team-member h3 {
+  margin-top: 10px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.team-member p {
+  margin-top: 20px;
+  font-size: 16px;
+  text-align: justify;
+}
+
+.team-member:hover{
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+  transform: scale(1.05);
+}
+
+.team-member1:hover{
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+  transform: scale(1.05);
+}
+
+.logo{
+  position: absolute;
+  height:15rem;
+  width:15rem;
+  right:3rem;
+  top:13rem;
+}
