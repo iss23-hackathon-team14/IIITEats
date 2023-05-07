@@ -1,8 +1,19 @@
-.heading {
-  margin-top: 10vw;
+.background {
+  padding-top: 15vh;
+}
+
+.background > a {
+  cursor: pointer;
+  font-family: "OpenSans";
+  font-size: 2rem;
+  width: 100%;
+  text-align: right;
+  margin-right: 3rem;
+  color: green;
 }
 
 .filters {
+  margin-top: 3rem;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -266,6 +277,7 @@ select {
 }
 
 .menu_item {
+  margin-top: 2rem;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   height: 100%;
