@@ -110,7 +110,11 @@
         <input type="password" placeholder="Password" />
       </div>
       <button type="submit">{% block login_button_text %}{% endblock %}</button>
+      {% if active_page == '/login'%}
+      <div class="login_text">New User? <a href="">Register</a></div>
+      {% endif %}
     </form>
+
   </div>
 </div>
 {% endblock %} {% block extra_js %}

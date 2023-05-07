@@ -26,6 +26,7 @@
   font-family: "OpenSans";
   font-size: 2rem;
   height: 8vh;
+  cursor: pointer;
 }
 
 .canteen:hover {

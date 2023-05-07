@@ -32,6 +32,7 @@ footer {
     color: white;
     font-family: OpenSans;
     font-weight: lighter;
+    min-width: 100%;
 }
 
 .heading {
